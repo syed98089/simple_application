@@ -38,8 +38,7 @@
           <target>1.8</target>
         </configuration>
           </plugin>
-        <plugin>
-
+        
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
