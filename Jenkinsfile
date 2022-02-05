@@ -24,9 +24,10 @@ pipeline {
                 }
                 }
                 }
-        stage('deploy artifact on Nexus') {
+       
+        stage('Deploy Artifact on Nexus') {
             steps {
-                 'nexusArtifactUploader artifacts: [[artifactId: 'maven-project', classifier: '', file: 'target/Maven-Project-1.0.0.war', type: 'war']], credentialsId: 'nexus2', groupId: 'com.example.maven-project', nexusUrl: '172.31.81.22', nexusVersion: 'nexus2', protocol: 'http', repository'
+                nexusArtifactUploader artifacts: [[artifactId: 'maven-project', classifier: '', file: 'target/Webapp-1.0.0.war', type: 'war']], credentialsId: 'nexus2', groupId: 'com.example.maven-project', nexusUrl: '172.31.81.22', nexusVersion: 'nexus2', protocol: 'http', repository: 'simple_app_release/', version: '1.0.0'
                 }
                 }
 
