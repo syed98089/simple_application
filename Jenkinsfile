@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy Artifact on Nexus') {
             steps {
                   script{
-			def mavenPom = readMavenPom'pom.xml'	
+			def mavenPom = readMavenPom 'pom.xml'	
 			 nexusArtifactUploader artifacts: [[artifactId: 'maven-project', classifier: '', file: '/var/lib/jenkins/workspace/build_job/webapp/target/webapp.war', type: 'war']], credentialsId: 'nexus2', groupId: 'com.example.maven-project', nexusUrl: '172.31.81.22:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'simpleapp-release', version: "${mavenPom.version}"
                         }
                 }
