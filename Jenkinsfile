@@ -33,7 +33,7 @@ pipeline {
        
         stage('Deploy Artifact on Nexus') {
             steps {
-             nexusArtifactUploader artifacts: [[artifactId: 'maven-project', classifier: '', file: '/var/lib/jenkins/workspace/build_job/webapp/target/webapp.war', type: 'war']], credentialsId: 'nexus2', groupId: 'com.example.maven-project', nexusUrl: '172.31.81.22', nexusVersion: 'nexus2', protocol: 'http', repository: 'simple_app_release/', version: '1.0.0'
+             nexusArtifactUploader artifacts: [[artifactId: 'maven-project', classifier: '', file: 'webapp.war', type: 'war']], credentialsId: 'nexus2', groupId: 'com.example.maven-project', nexusUrl: '172.31.81.22', nexusVersion: 'nexus2', protocol: 'http', repository: 'simple_app_release/', version: '1.0.0'
     
                 }
                 }
