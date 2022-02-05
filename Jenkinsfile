@@ -24,6 +24,11 @@ pipeline {
                 }
                 }
                 }
+        stage('deploy artifact on Nexus') {
+            steps {
+                sh 'nexusArtifactUploader artifacts: [[artifactId: 'maven-project', classifier: '', file: '/target/Maven-Project.1.0.0.war', type: 'war']], credentialsId: 'nexus2', groupId: 'com.example.maven-project', nexusUrl: '172.31.81.22', nexusVersion: 'nexus2', protocol: 'http', repository'
+                }
+                }
 
 }
 }
