@@ -25,12 +25,12 @@ pipeline {
                 }
                 }
                 }
-        stage('Build for package artifact') {
+        stage('Build for package artifact for tomcat-server') {
                steps {
                 sh 'mvn clean install'
                 }
                 }
-        stage('Build for package artifact') {
+        stage('Build for package artifact to deploy on tomcat-server') {
                steps {
                
                 sshagent(['deploy_user']) {
