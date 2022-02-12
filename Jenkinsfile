@@ -10,12 +10,7 @@ pipeline {
                     }
                 }
              
- 
-        stage('Build for install artifact ') {
-            steps {    
-                sh 'mvn clean install'  
-                }
-                }
+
          stage('Build for package artifact') {
             steps {
                 sh 'mvn clean package'
