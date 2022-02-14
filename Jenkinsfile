@@ -34,12 +34,18 @@ pipeline {
                steps {
                
                 sshagent(['deploy_user']) {
-              sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/build_job/webapp/target/webapp.war ec2-user@13.250.11.158:/opt/apache-tomcat-8.5.75/webapps"    
+              sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/build_job/webapp/target/webapp.war ec2-user@54.179.125.14:/opt/apache-tomcat-8.5.75/webapps"    
                 
                 }
                 }
                 }
 
-
+      stage('SonarQube analysis') {
+             steps {
+    withSonarQubeEnv('sonarqube-8.9.7'){
+     sh "mvn sonar:sonar"
+    }
+    }
+    }
 }
 }
